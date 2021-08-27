@@ -1,0 +1,75 @@
+
+{% extends 'accounts/registered_main.html' %}
+<style>
+	body{
+		background-color: #ebeff5;
+	}
+
+
+	#total-orders{
+		background-color: #4cb4c7;
+	}
+
+
+	#orders-delivered{
+		background-color: #7abecc;
+	}
+
+	#orders-pending{
+		background-color: #7CD1C0;
+	}
+</style>
+{% block content %}
+    <div class="col-md">
+        <div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="total-orders">
+			  	<div class="card-header">
+
+					<h5 class="card-title" style="color: black">  Total Tasks</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title" style="color: black">{{buckets_count}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-delivered">
+			  	<div class="card-header">
+			  		<h5 class="card-title" style="color: black">Total Users</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title" style="color: black">{{users_count}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+    <h1>All Tasks: </h1>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>User</th>
+					<th>Task Name</th>
+					<th>Task</th>
+                    <th>Date Created</th>
+				</tr>
+
+				{% for bucket in buckets %}
+					<tr>
+						<td>{{bucket.user}}</td>
+						<td>{{bucket.name}}</td>
+						<td>{{bucket.task}}</td>
+                        <td>{{bucket.date_created}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+{% endblock %}

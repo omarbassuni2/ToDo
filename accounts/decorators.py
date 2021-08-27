@@ -1,0 +1,1 @@
+#here create helper functions to help the view script with authorization and authentication
